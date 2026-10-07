@@ -1,0 +1,73 @@
+/* ==========================================
+   07 - DOM
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+
+    font-family: Arial, sans-serif;
+
+    background: #f4f4f4;
+    color: #222;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+
+    margin: 0 auto;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+#descripcion {
+    color: #666;
+}
+
+.card {
+    margin-top: 25px;
+    padding: 25px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+button {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #222;
+    color: white;
+
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+}
+
+#contador {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+li {
+    margin-bottom: 8px;
+}
