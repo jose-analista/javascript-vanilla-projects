@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tablero Kanban hecho con JavaScript puro: crear, editar, mover y borrar tareas con persistencia en el navegador.">
+  <title>Kanban - JavaScript puro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header class="cabecera">
+    <div>
+      <h1>Tablero Kanban</h1>
+      <p class="subtitulo">JavaScript puro · tus tareas se guardan en este navegador</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Formulario para crear tareas -->
+    <section class="panel" aria-labelledby="titulo-nueva">
+      <h2 id="titulo-nueva">Nueva tarea</h2>
+
+      <form id="formNueva" class="form-nueva" autocomplete="off">
+
+        <label class="campo">
+          <span>Título</span>
+          <input type="text" name="titulo" maxlength="80" placeholder="¿Qué hay que hacer?" required>
+        </label>
+
+        <label class="campo campo-ancho">
+          <span>Descripción (opcional)</span>
+          <input type="text" name="descripcion" maxlength="300" placeholder="Detalles de la tarea">
+        </label>
+
+        <label class="campo">
+          <span>Prioridad</span>
+          <select name="prioridad">
+            <option value="baja">Baja</option>
+            <option value="media" selected>Media</option>
+            <option value="alta">Alta</option>
+          </select>
+        </label>
+
+        <button type="submit" class="btn btn-primario">Agregar</button>
+      </form>
+
+      <p id="mensaje" class="mensaje" role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filtros" aria-label="Filtros">
+      <label class="campo campo-ancho">
+        <span>Buscar</span>
+        <input type="search" id="buscar" placeholder="Buscar por título o descripción">
+      </label>
+
+      <label class="campo">
+        <span>Prioridad</span>
+        <select id="filtroPrioridad">
+          <option value="">Todas</option>
+          <option value="alta">Alta</option>
+          <option value="media">Media</option>
+          <option value="baja">Baja</option>
+        </select>
+      </label>
+    </section>
+
+    <!-- Las columnas se generan desde js/ui.js -->
+    <section id="tablero" class="tablero" aria-label="Tablero de tareas"></section>
+
+  </main>
+
+  <!-- Diálogo de edición -->
+  <dialog id="dialogoEditar" class="dialogo" aria-labelledby="titulo-editar">
+    <form id="formEditar" class="form-editar">
+
+      <h2 id="titulo-editar">Editar tarea</h2>
+
+      <label class="campo">
+        <span>Título</span>
+        <input type="text" name="titulo" maxlength="80" required>
+      </label>
+
+      <label class="campo">
+        <span>Descripción</span>
+        <input type="text" name="descripcion" maxlength="300">
+      </label>
+
+      <label class="campo">
+        <span>Prioridad</span>
+        <select name="prioridad">
+          <option value="baja">Baja</option>
+          <option value="media">Media</option>
+          <option value="alta">Alta</option>
+        </select>
+      </label>
+
+      <p id="mensajeEditar" class="mensaje error" role="alert"></p>
+
+      <div class="acciones-dialogo">
+        <button type="button" id="btnCancelarEdicion" class="btn">Cancelar</button>
+        <button type="submit" class="btn btn-primario">Guardar</button>
+      </div>
+
+    </form>
+  </dialog>
+
+  <footer class="pie">
+    <p>Arrastra las tarjetas entre columnas, o usa los botones ◀ ▶ en el celular.</p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

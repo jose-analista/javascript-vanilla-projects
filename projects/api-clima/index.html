@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aplicación del clima en JavaScript puro: busca una ciudad y consulta el tiempo actual y el pronóstico de 5 días con la API de Open-Meteo.">
+  <title>Clima - JavaScript puro</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header class="cabecera">
+    <div>
+      <h1>Clima</h1>
+      <p class="subtitulo">Tiempo actual y pronóstico de 5 días · JavaScript puro</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Búsqueda -->
+    <section class="panel" aria-label="Buscar ciudad">
+
+      <form id="formBusqueda" class="form-busqueda" role="search" autocomplete="off">
+
+        <div class="campo-busqueda">
+
+          <label for="inputCiudad" class="oculto-visual">Ciudad</label>
+
+          <input
+            type="search"
+            id="inputCiudad"
+            placeholder="Busca una ciudad..."
+            maxlength="60"
+          >
+
+          <ul id="sugerencias" class="sugerencias" hidden></ul>
+
+        </div>
+
+        <button type="submit" class="btn btn-primario">Buscar</button>
+
+        <button type="button" id="btnUbicacion" class="btn" title="Usar mi ubicación">
+          📍 Mi ubicación
+        </button>
+
+        <button type="button" id="btnUnidad" class="btn" title="Cambiar unidad de temperatura">
+          °C
+        </button>
+
+      </form>
+
+      <p id="aviso" class="aviso" role="status"></p>
+
+      <div id="favoritos" class="favoritos" aria-label="Ciudades favoritas"></div>
+
+    </section>
+
+    <!-- Resultado -->
+    <section id="resultado" class="resultado" aria-live="polite" aria-busy="false">
+
+      <div id="estado" class="estado" hidden></div>
+
+      <div id="clima" hidden></div>
+
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>
+      Datos del tiempo por
+      <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo.com</a>
+      (licencia CC BY 4.0).
+    </p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
