@@ -1,4 +1,4 @@
-````markdown
+
 # JavaScript Vanilla Projects
 
 Repositorio de aprendizaje y desarrollo con **JavaScript puro (Vanilla JavaScript)**, orientado al desarrollo frontend y a la consolidación de fundamentos como Analista Programador.
@@ -6,6 +6,7 @@ Repositorio de aprendizaje y desarrollo con **JavaScript puro (Vanilla JavaScrip
 ## Tecnologías
 
 - JavaScript
+- Node.js
 - HTML5
 - CSS3
 - DOM
@@ -63,6 +64,42 @@ javascript-vanilla-projects/
     └── weather-app/
 ````
 
+## Ejecución con Node.js
+
+Verificar que Node.js esté instalado:
+
+```bash
+node --version
+```
+
+Ejecutar un archivo JavaScript:
+
+```bash
+node 01-variables/variables.js
+```
+
+Ejecutar condicionales:
+
+```bash
+node 02-condicionales/condicionales.js
+```
+
+Ejemplo general:
+
+```bash
+node ruta/al/archivo.js
+```
+
+## Proyectos con navegador
+
+Los ejercicios que utilizan HTML, CSS y DOM deben ejecutarse desde el navegador abriendo:
+
+```text
+index.html
+```
+
+También pueden ejecutarse utilizando un servidor local.
+
 ## Objetivos
 
 * Aplicar fundamentos de JavaScript.
@@ -88,5 +125,3 @@ git clone https://github.com/jose-analista/javascript-vanilla-projects.git
 cd javascript-vanilla-projects
 ```
 
-```
-```
