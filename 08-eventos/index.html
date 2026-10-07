@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JavaScript Eventos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 40px 20px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background: #222;
+            color: white;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        #zonaHover {
+            padding: 30px;
+            background: #ddd;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        #mensaje {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1>Eventos en JavaScript</h1>
+
+        <p>
+            Ejemplos de eventos utilizando
+            <strong>addEventListener()</strong>.
+        </p>
+
+        <!-- CLICK -->
+        <section class="card">
+
+            <h2>1. Click</h2>
+
+            <button id="btnClick">
+                Hacer click
+            </button>
+
+            <p id="mensajeClick">
+                Esperando acción...
+            </p>
+
+        </section>
+
+        <!-- DOBLE CLICK -->
+        <section class="card">
+
+            <h2>2. Doble click</h2>
+
+            <button id="btnDobleClick">
+                Haz doble click
+            </button>
+
+            <p id="mensajeDobleClick">
+                Esperando doble click...
+            </p>
+
+        </section>
+
+        <!-- MOUSEOVER -->
+        <section class="card">
+
+            <h2>3. Mouseover y mouseout</h2>
+
+            <div id="zonaHover">
+                Pasa el mouse por aquí
+            </div>
+
+        </section>
+
+        <!-- INPUT -->
+        <section class="card">
+
+            <h2>4. Input</h2>
+
+            <input
+                type="text"
+                id="campoTexto"
+                placeholder="Escribe algo..."
+            >
+
+            <p>
+                Texto ingresado:
+                <span id="textoIngresado">---</span>
+            </p>
+
+        </section>
+
+        <!-- KEYDOWN -->
+        <section class="card">
+
+            <h2>5. Keydown</h2>
+
+            <input
+                type="text"
+                id="campoTeclado"
+                placeholder="Presiona una tecla..."
+            >
+
+            <p id="teclaPresionada">
+                Ninguna tecla presionada.
+            </p>
+
+        </section>
+
+        <!-- CHANGE -->
+        <section class="card">
+
+            <h2>6. Change</h2>
+
+            <select id="selectorTecnologia">
+
+                <option value="">
+                    Selecciona una tecnología
+                </option>
+
+                <option value="JavaScript">
+                    JavaScript
+                </option>
+
+                <option value="Python">
+                    Python
+                </option>
+
+                <option value="PHP">
+                    PHP
+                </option>
+
+                <option value="Laravel">
+                    Laravel
+                </option>
+
+            </select>
+
+            <p id="tecnologiaSeleccionada">
+                Ninguna tecnología seleccionada.
+            </p>
+
+        </section>
+
+        <!-- SUBMIT -->
+        <section class="card">
+
+            <h2>7. Submit</h2>
+
+            <form id="formulario">
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Ingresa tu nombre"
+                    required
+                >
+
+                <br>
+
+                <button type="submit">
+                    Enviar formulario
+                </button>
+
+            </form>
+
+            <p id="resultadoFormulario"></p>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

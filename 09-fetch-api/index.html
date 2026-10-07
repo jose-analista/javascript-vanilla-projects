@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>09 - Fetch API</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+      line-height: 1.5;
+      background: #f5f6f8;
+      color: #1f2430;
+    }
+
+    h1 { margin-bottom: 4px; }
+
+    section {
+      background: #fff;
+      border: 1px solid #dfe3ea;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    h2 { margin-top: 0; font-size: 1.1rem; }
+
+    button, input, select, textarea {
+      font: inherit;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #b9c0cc;
+    }
+
+    button {
+      background: #2f6fed;
+      color: #fff;
+      border-color: #2f6fed;
+      cursor: pointer;
+    }
+
+    button:hover { background: #1f5ad0; }
+    button:disabled { background: #9db6ee; border-color: #9db6ee; cursor: wait; }
+
+    .fila { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+    .estado {
+      margin-top: 10px;
+      padding: 8px 12px;
+      background: #eef1f6;
+      border-radius: 6px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9rem;
+      min-height: 38px;
+      white-space: pre-wrap;
+    }
+
+    .estado.error { background: #fdecea; color: #c0392b; }
+    .estado.ok { background: #e8f6ee; color: #1e8449; }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .tarjeta {
+      border: 1px solid #dfe3ea;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: #fafbfd;
+    }
+
+    .tarjeta h3 { margin: 0 0 4px; font-size: 1rem; }
+    .tarjeta p { margin: 0; font-size: 0.9rem; color: #4a5365; }
+
+    .etiqueta {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: #dbe7ff;
+      margin-top: 6px;
+    }
+
+    .etiqueta.hecha { background: #d6f5d6; }
+  </style>
+</head>
+
+<body>
+
+  <h1>09 - Fetch API</h1>
+  <p>fetch() permite pedir datos a una API desde el navegador. Usamos <strong>JSONPlaceholder</strong>, una API de prueba con datos falsos.</p>
+
+  <!-- 1. GET BÁSICO -->
+  <section>
+    <h2>1. GET básico</h2>
+    <div class="fila">
+      <button id="btnUnaTarea">Cargar tarea #1</button>
+    </div>
+    <div class="estado" id="estadoUna">Sin datos.</div>
+  </section>
+
+  <!-- 2. LISTA DE USUARIOS -->
+  <section>
+    <h2>2. Lista de usuarios (con estados de carga y error)</h2>
+    <div class="fila">
+      <button id="btnUsuarios">Cargar usuarios</button>
+    </div>
+    <div class="estado" id="estadoUsuarios">Sin datos.</div>
+    <div class="tarjetas" id="tarjetasUsuarios"></div>
+  </section>
+
+  <!-- 3. PARÁMETROS Y FILTRO -->
+  <section>
+    <h2>3. Tareas de un usuario (parámetros en la URL)</h2>
+    <div class="fila">
+      <select id="selectUsuario">
+        <option value="1">Usuario 1</option>
+        <option value="2">Usuario 2</option>
+        <option value="3">Usuario 3</option>
+        <option value="4">Usuario 4</option>
+        <option value="5">Usuario 5</option>
+      </select>
+      <select id="selectEstado">
+        <option value="">Todas</option>
+        <option value="true">Completadas</option>
+        <option value="false">Pendientes</option>
+      </select>
+      <button id="btnTareas">Buscar</button>
+    </div>
+    <div class="estado" id="estadoTareas">Sin datos.</div>
+    <div class="tarjetas" id="tarjetasTareas"></div>
+  </section>
+
+  <!-- 4. POST -->
+  <section>
+    <h2>4. Enviar datos (POST)</h2>
+    <form id="formPost">
+      <div class="fila">
+        <input type="text" id="tituloPost" placeholder="Título" required>
+        <input type="text" id="cuerpoPost" placeholder="Contenido" required>
+        <button type="submit" id="btnEnviar">Enviar</button>
+      </div>
+    </form>
+    <div class="estado" id="estadoPost">Sin envíos.</div>
+  </section>
+
+  <!-- 5. PROMISE.ALL -->
+  <section>
+    <h2>5. Varias peticiones a la vez (Promise.all)</h2>
+    <div class="fila">
+      <button id="btnResumen">Cargar resumen</button>
+    </div>
+    <div class="estado" id="estadoResumen">Sin datos.</div>
+  </section>
+
+  <!-- 6. ERRORES -->
+  <section>
+    <h2>6. Errores y cancelación</h2>
+    <div class="fila">
+      <button id="btnError404">Pedir ruta inexistente (404)</button>
+      <button id="btnRed">Pedir dominio inválido</button>
+      <button id="btnCancelar">Petición con timeout de 1 ms</button>
+    </div>
+    <div class="estado" id="estadoErrores">Sin datos.</div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
